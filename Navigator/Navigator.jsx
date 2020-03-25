@@ -3,19 +3,32 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../Views/Home';
+import Blank from '../Views/Blank';
+import { Header } from 'react-native/Libraries/NewAppScreen';
+
 
 const Stack = createStackNavigator();
 
 
-const Navigator = () => {
+const Navigator = (props) => {
+
+
+   console.log(props.dates);
 
   return (
-    <NavigationContainer  >
-       <Stack.Navigator screenOptions={{
-           headerShown: false,
+    <NavigationContainer>
+
+       <Stack.Navigator 
+        screenOptions={{
+            headerShown: false,
+            header: <Header/>
          }}>
-       
-        <Stack.Screen name="Home" component={Home}/>
+
+     
+        <Stack.Screen name="Home" component={Home} initialParams={{dates: props.dates}}
+         
+        />
+        <Stack.Screen name="Blank" component={Blank}/>
       
       </Stack.Navigator>
   </NavigationContainer>
