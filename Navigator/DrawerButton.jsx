@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text,TouchableOpacity,Button,StyleSheet } from 'react-native';
 import { createDrawerNavigator, DrawerItemList,DrawerItem,DrawerContentScrollView } from '@react-navigation/drawer';
-
+import Home from '../Views/Home';
 
 
 function CustomDrawerContent(props) {
@@ -28,7 +28,6 @@ const MyDrawer = ()=> {
   return (
     <Drawer.Navigator drawerContent={props => CustomDrawerContent(props)}>
         <Drawer.Screen name="home" component={Home}/>
-         <Drawer.Screen name="header" component={MyHeader}/>
     </Drawer.Navigator>
   );
 }
